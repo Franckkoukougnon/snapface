@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="face-snap-card" [ngStyle]="{'snapped': buttonText === 'Oups deja un snap !!!'}">
+    <h2>{{faceSnap.title}}</h2>
+    <h2>{{faceSnap.author}}</h2>
+    <p>{{faceSnap.description}}</p>
+    <p>Mise en ligne le :{{faceSnap.updateDate}}</p>
+    <p *ngIf="faceSnap.location"> Photo prise à {{faceSnap.location}}</p>
+    <button (click)="addSnap()">{{buttonText}}</button> <span> {{faceSnap.snaps}}</span>
+    <button (click)="addSnap2()">{{faceSnap.snaps}}</button>
+
+  </div>
+  <div class="img-container">
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.author">
+  </div>
+</div>
