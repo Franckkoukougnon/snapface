@@ -8,10 +8,9 @@
     <p>{{350 | currency: 'EUR' }}</p>
     <p>Mise en ligne le :{{faceSnap.updateDate | date}}</p>
     <p *ngIf="faceSnap.location"> Photo prise à {{faceSnap.location}}</p>
-    <button (click)="addSnap()">{{buttonText}}</button> <span> {{faceSnap.snaps}}</span>
-    <button (click)="addSnap2()">{{faceSnap.snaps}}</button>
     <div class="img-container">
       <img [src]="faceSnap.imageUrl" [alt]="faceSnap.author">
     </div>
+    <button (click)="addSnap()">{{buttonText}}</button> <span> {{faceSnap.snaps}}</span>
   </div>
 </div>

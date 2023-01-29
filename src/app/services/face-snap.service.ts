@@ -7,15 +7,17 @@ import { FaceSnap } from '../models/face-snap.models';
 export class FaceSnapService {
   faceSnaps: FaceSnap[] = [
     {
+      id: 1,
       author: 'Simplon',
       title: 'Franck Koukougnon',
       description: 'Mon fils tu seras heureux',
       imageUrl: './assets/AJ1.jpeg',
       updateDate: new Date(),
-      snaps: 200,
+      snaps: 0,
       location: 'Paris',
     },
     {
+      id: 2,
       author: ' Bordeaux',
       title: 'Laga Digbeu ',
       description: 'Mon fils tu seras fier',
@@ -25,6 +27,7 @@ export class FaceSnapService {
       location: 'Bordeaux',
     },
     {
+      id: 3,
       author: 'Simplon',
       title: 'Franck Koukougnon',
       description: 'Mon fils tu seras heureux',
@@ -33,6 +36,7 @@ export class FaceSnapService {
       snaps: 0,
     },
     {
+      id: 3,
       author: 'Krindjabo',
       title: 'Laga Digbeu ',
       description: 'Mon fils tu seras fier',
@@ -42,4 +46,24 @@ export class FaceSnapService {
       location: 'Bordeaux',
     },
   ];
+
+  getAllFaceSnap(): FaceSnap[] {
+    return this.faceSnaps;
+  }
+
+  getFaceSnapById(faceSnapId: number): FaceSnap {
+    const faceSnap = this.faceSnaps.find(
+      (faceSnap) => faceSnap.id === faceSnapId
+    );
+    if (!faceSnap) {
+      throw new Error('New error !!!');
+    } else {
+      return faceSnap;
+    }
+  }
+
+  snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): void {
+    const faceSnap = this.getFaceSnapById(faceSnapId);
+    snapType === 'snap' ? faceSnap.snaps++ : faceSnap.snaps--;
+  }
 }
