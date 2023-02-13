@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
       filter((values) => values % 3 === 0),
       map((value) =>
         value % 2 === 0
-          ? `${value} est un nombre paire`
-          : `${value} est un nombre impaire`
+          ? `le nombre  : ${value} est un nombre paire`
+          : `Le nombre : ${value} est un nombre impaire`
       ),
       tap((text) => this.logger(text))
     );
