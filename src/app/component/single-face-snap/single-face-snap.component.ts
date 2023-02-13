@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FaceSnap } from '../../models/face-snap.models';
 import { FaceSnapService } from '../../services/face-snap.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-single-face-snap',
@@ -12,6 +14,7 @@ import { Router } from '@angular/router';
 export class SingleFaceSnapComponent {
   faceSnap!: FaceSnap;
   buttonText!: string;
+  testObservable$!: Observable<number>;
 
   constructor(
     private faceSnapService: FaceSnapService,
@@ -23,6 +26,7 @@ export class SingleFaceSnapComponent {
     this.buttonText = 'Oh un Snap !!';
     const faceSnapId = +this.route.snapshot.params['id'];
     this.faceSnap = this.faceSnapService.getFaceSnapById(faceSnapId);
+    this.testObservable$ = interval(1000);
   }
 
   addSnap() {

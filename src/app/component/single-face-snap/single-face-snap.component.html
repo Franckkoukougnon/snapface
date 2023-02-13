@@ -2,6 +2,7 @@
 
   <div class="face-snap-card" [ngClass]="{'snapped': buttonText === 'Oups deja un snap !!!'}">
     <button (click)="backFaceSnap()">Back</button>
+    <p>{{testObservable$ | async}}</p>
     <h2>{{faceSnap.title | uppercase }}</h2> <span> </span>
     <h2>{{faceSnap.author | lowercase}}</h2>
     <h2>{{faceSnap.description | titlecase }}</h2>
